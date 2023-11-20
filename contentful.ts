@@ -25,23 +25,16 @@ export async function fetchAssets() {
   const assets = await client.getAssets();
   return assets.items ? assets.items : [];
 }
-type Content = {
-  content: {
-    content: Array<any>;
-  };
-};
-type RichText = {
-  content: {
-    content: Array<any>;
-  };
-  nodeType: string;
-  data: {};
-};
+
 type BlogPostSkelton = {
   contentTypeId: "mySite";
   fields: {
     title: contentful.EntryFieldTypes.Text;
-    body: RichText;
+    body: {
+      content: Array<{
+        content: Array<{ value: string }>;
+      }>;
+    };
   };
 };
 export async function fetchEntry(id: string) {
