@@ -1,22 +1,10 @@
-- Header
+## TODO
 
-  - Home
-  - Products
-  - Blog
-
-- Home
-
-  - Product
-  - 最新ブログ 3 件
-
-- Profile
-- アイコン
-- 一言
-- X、Github、LinkedIn のアイコン
-
-＃ TODO
-
-- トップページでは Product と直近投稿された 2 件のブログの「タイトル・作成日・本文 25 行・イメージ画像・タグ」を表示する
+- [型定義ファイルを作成して body を表示する](https://silurus.dev/articles/7DJobP47XUTkDjNavzyf2s)(https://blog.chick-p.work/blog/contentful-nextjs-blog/)
+-
+- スタイル適当なのでいい感じにする
+- レンダリング手法も最適にする
+- Vercel のドメインを取得する（12 月？）
 
 # Contentful Memo
 
