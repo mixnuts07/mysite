@@ -38,6 +38,6 @@ type BlogPostSkelton = {
   };
 };
 export async function fetchEntry(id: string) {
-  const entry = await client.getEntry<BlogPostSkelton>(id);
+  const entry = await client.getEntry(id);
   return entry;
 }

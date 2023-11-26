@@ -9,6 +9,7 @@ export default function Page({ params }: { params: { id: string } }) {
     fetchEntry(params.id)
       .then((entry) => {
         setTitle(String(entry.fields.title || ""));
+        console.log(entry.fields);
         // setBody(entry.fields.body.content[0]?.content[0].value || "");
 
         console.log(entry);

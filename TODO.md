@@ -1,8 +1,11 @@
 ## TODO
 
 - [型定義ファイルを作成して body を表示する](https://silurus.dev/articles/7DJobP47XUTkDjNavzyf2s)(https://blog.chick-p.work/blog/contentful-nextjs-blog/)
--
-- スタイル適当なのでいい感じにする
+- 更新日を表示することができる
+- リッチな Body を表示することができる
+- Tag を表示することができる
+- Update 順に表示することができる
+- スタイル適当なのでいい感じにする（ボトムに Margin など）
 - レンダリング手法も最適にする
 - Vercel のドメインを取得する（12 月？）
 
