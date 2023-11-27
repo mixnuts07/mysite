@@ -33,35 +33,15 @@ export interface IMySite extends Entry<IMySiteFields> {
   };
 }
 
-export interface ISiteFields {
-  /** title */
-  title: string;
+export type CONTENT_TYPE = "mySite";
 
-  /** body */
-  body: Document;
-}
-
-export interface ISite extends Entry<ISiteFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "site";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export type CONTENT_TYPE = "mySite" | "site";
-
-export type IEntry = IMySite | ISite;
+export type IEntry = IMySite;
 
 export type LOCALE_CODE = "en-US";
 
 export type CONTENTFUL_DEFAULT_LOCALE_CODE = "en-US";
+
+export type TypeMySiteFields = EntrySkeletonType<
+  TypeBlogPostFields,
+  CONTENT_TYPE
+>;

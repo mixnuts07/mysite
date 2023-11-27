@@ -1,5 +1,6 @@
 import * as contentful from "contentful";
 import { EntrySkeletonType } from "contentful";
+import { IMySiteFields } from "./@types/generated/contentful";
 
 export const client = contentful.createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || "",
@@ -8,6 +9,7 @@ export const client = contentful.createClient({
 
 export async function fetchEntries() {
   const entries = await client.getEntries({
+    content_type: "mySite",
     order: ["-sys.createdAt"],
   });
   return entries.items ? entries.items : [];
