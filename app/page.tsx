@@ -1,6 +1,5 @@
 "use client";
-import { client, fetchEntriesLimit2 } from "@/contentful";
-import Image from "next/image";
+import { fetchEntries } from "@/contentful";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Entry, EntrySkeletonType } from "contentful";
@@ -12,7 +11,7 @@ export default function Home() {
   const [assets, setAssets] = useState([]);
 
   useEffect(() => {
-    fetchEntriesLimit2()
+    fetchEntries(2)
       .then((res) => {
         setEntries(res);
       })

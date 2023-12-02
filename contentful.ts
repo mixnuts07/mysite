@@ -7,18 +7,11 @@ export const client = contentful.createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_DELIVERY_ACCESS_TOKEN || "",
 });
 
-export async function fetchEntries() {
+export async function fetchEntries(limit?: number) {
   const entries = await client.getEntries({
     content_type: "mySite",
     order: ["-sys.createdAt"],
-  });
-  return entries.items ? entries.items : [];
-}
-
-export async function fetchEntriesLimit2() {
-  const entries = await client.getEntries({
-    order: ["-sys.createdAt"],
-    limit: 2,
+    limit: limit ? limit : undefined,
   });
   return entries.items ? entries.items : [];
 }
