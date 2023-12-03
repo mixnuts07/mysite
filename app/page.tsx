@@ -16,14 +16,13 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <main className="w-4/5">
       {entries?.items.map((entry) => {
         const dateOnly = entry.sys.updatedAt.split("T")[0];
         return (
           <div
             key={entry.sys.id}
-            className=" border-black rounded-lg border-2 p-4 w-full h-2/5 mt-10"
-            // className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30"
+            className=" border-black rounded-lg border-2 p-4 h-2/5 mt-10 hover:bg-slate-100 hover:border-slate-300"
           >
             <Link href={`blog/${entry.sys.id}`}>
               <h2>{entry.fields.title?.toString()}</h2>
