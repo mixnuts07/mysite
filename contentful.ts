@@ -1,5 +1,5 @@
 import * as contentful from "contentful";
-import { BlogQueryResult } from "./types";
+import { BlogItem, BlogQueryResult } from "./types";
 
 export const client = contentful.createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || "",
@@ -27,11 +27,9 @@ export async function fetchEntries(
 //   const entry = await client.getEntries(options);
 //   if (entry.items) return entry.items as unknown as BlogQueryResult;
 // }
-export async function fetchEntry(
-  id: string
-): Promise<BlogQueryResult | undefined> {
+export async function fetchEntry(id: string): Promise<BlogItem | undefined> {
   const entry = await client.getEntry(id);
-  if (entry) return entry as unknown as BlogQueryResult;
+  if (entry) return entry as unknown as BlogItem;
 }
 
 export async function fetchAssets() {
