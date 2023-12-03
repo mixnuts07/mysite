@@ -8,10 +8,10 @@ export default function Header() {
         <Link href="/">
           <h1>home</h1>
         </Link>
-        <Link href="./products">
+        <Link href="/products">
           <h1>products</h1>
         </Link>
-        <Link href="./blog">
+        <Link href="/blog">
           <h1>blog</h1>
         </Link>
         <Link href="https://twitter.com/mixed_nuts_nuts" target="_blank">

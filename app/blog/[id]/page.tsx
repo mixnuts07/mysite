@@ -1,25 +1,17 @@
-"use client";
 import { fetchEntry } from "@/contentful";
-import { useEffect, useState } from "react";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-export default function Page({ params }: { params: { id: string } }) {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  useEffect(() => {
-    fetchEntry(params.id)
-      .then((entry) => {
-        setTitle(String(entry.fields.title || ""));
-        console.log(entry.fields);
-        // setBody(entry.fields.body.content[0]?.content[0].value || "");
-
-        console.log(entry);
-      })
-      .catch(console.error);
-  }, []);
+// eslint-disable-next-line @next/next/no-async-client-component
+export default async function Page({ params }: { params: { id: string } }) {
+  const entry = await fetchEntry(params.id);
+  const firstItem = entry?.items[0];
   return (
     <div className="mt-10">
-      <h1>{title}</h1>
-      {/* <h1 className="mt-10">{body}</h1> */}
+      <h1>{firstItem?.fields.title}</h1>
+      {/* <p>{documentToReactComponents(firstItem?.fields)}</p> */}
+      <h1>te</h1>
+      <h1>te</h1>
+      <h1>te</h1>
     </div>
   );
 }

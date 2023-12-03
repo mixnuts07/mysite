@@ -11,20 +11,12 @@ import React, { useEffect, useState } from "react";
 interface Props {
   posts: EntryCollection<TypeMySiteFields>;
 }
-export default function Blog() {
-  const [entries, setEntries] = useState<
-    Entry<EntrySkeletonType, undefined, string>[]
-  >([]);
-  useEffect(() => {
-    fetchEntries()
-      .then((res) => {
-        setEntries(res);
-      })
-      .catch(console.error);
-  }, []);
+// eslint-disable-next-line @next/next/no-async-client-component
+export default async function Blog() {
+  const entries = await fetchEntries();
   return (
     <div className="my-5">
-      {entries.map((entry) => {
+      {entries?.items.map((entry) => {
         const dateOnly = entry.sys.createdAt.split("T")[0];
         return (
           <div

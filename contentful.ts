@@ -1,38 +1,30 @@
 import * as contentful from "contentful";
-import { EntrySkeletonType } from "contentful";
-import { IMySiteFields } from "./@types/generated/contentful";
+import { BlogQueryResult } from "./types";
 
 export const client = contentful.createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || "",
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_DELIVERY_ACCESS_TOKEN || "",
 });
 
-export async function fetchEntries(limit?: number) {
+export async function fetchEntries(
+  limit?: number
+): Promise<BlogQueryResult | undefined> {
   const entries = await client.getEntries({
     content_type: "mySite",
     order: ["-sys.createdAt"],
     limit: limit ? limit : undefined,
   });
-  return entries.items ? entries.items : [];
+  if (entries.items) return entries as unknown as BlogQueryResult;
+}
+
+export async function fetchEntry(
+  id: string
+): Promise<BlogQueryResult | undefined> {
+  const entry = await client.getEntry(id);
+  if (entry) return entry as unknown as BlogQueryResult;
 }
 
 export async function fetchAssets() {
   const assets = await client.getAssets();
   return assets.items ? assets.items : [];
-}
-
-type BlogPostSkelton = {
-  contentTypeId: "mySite";
-  fields: {
-    title: contentful.EntryFieldTypes.Text;
-    body: {
-      content: Array<{
-        content: Array<{ value: string }>;
-      }>;
-    };
-  };
-};
-export async function fetchEntry(id: string) {
-  const entry = await client.getEntry(id);
-  return entry;
 }
