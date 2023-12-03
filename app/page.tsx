@@ -2,7 +2,6 @@
 import { fetchEntries } from "@/contentful";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Entry, EntrySkeletonType } from "contentful";
 import { BlogQueryResult } from "@/types";
 
 export default function Home() {
@@ -11,7 +10,7 @@ export default function Home() {
   );
   useEffect(() => {
     (async () => {
-      const getEntries = await fetchEntries();
+      const getEntries = await fetchEntries(2);
       setEntries(getEntries);
     })();
   }, []);
