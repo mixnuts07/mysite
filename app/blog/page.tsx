@@ -1,16 +1,8 @@
 "use client";
-import {
-  IMySite,
-  IMySiteFields,
-  TypeMySiteFields,
-} from "@/@types/generated/contentful";
 import { fetchEntries } from "@/contentful";
-import { Entry, EntryCollection, EntrySkeletonType } from "contentful";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-interface Props {
-  posts: EntryCollection<TypeMySiteFields>;
-}
+import React from "react";
+
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function Blog() {
   const entries = await fetchEntries();
