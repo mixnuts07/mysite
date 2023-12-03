@@ -9,7 +9,7 @@ export default async function Blog() {
   return (
     <div className="my-5">
       {entries?.items.map((entry) => {
-        const dateOnly = entry.sys.createdAt.split("T")[0];
+        const dateOnly = entry.sys.updatedAt.split("T")[0];
         return (
           <div
             key={entry.sys.id}

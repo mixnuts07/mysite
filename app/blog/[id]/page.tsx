@@ -5,7 +5,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const entry = await fetchEntry(params.id);
   const { title, body } = entry.fields;
   const { sys } = entry;
-  const dateOnly = sys.createdAt.split("T")[0];
+  const dateOnly = sys.updatedAt.split("T")[0];
   return (
     <div className="mt-10 flex flex-col justify-center items-center">
       <h1 className="font-sans font-medium">{title?.toString()}</h1>
