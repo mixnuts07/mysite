@@ -17,6 +17,16 @@ export async function fetchEntries(
   if (entries.items) return entries as unknown as BlogQueryResult;
 }
 
+// export async function fetchEntry(
+//   id: string
+// ): Promise<BlogQueryResult | undefined> {
+//   const options = {
+//     content_type: "mySite",
+//     "fields.body[match]": id,
+//   };
+//   const entry = await client.getEntries(options);
+//   if (entry.items) return entry.items as unknown as BlogQueryResult;
+// }
 export async function fetchEntry(
   id: string
 ): Promise<BlogQueryResult | undefined> {
