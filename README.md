@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### TODO
 
-## Getting Started
+- Home画面
+  - それぞれのPOSTの画像を見ることができる。
+- blog画面
+  - それぞれのPOSTの画像を見ることができる。
+  - Update 順に表示することができる
+- blog詳細画面
+  - 1つ前のページに戻ることができる
+  - 本文を中央寄せで見ることができる
+  - 本文の長さが画面に切れないようにする
+  - リッチな Body を表示することができる
+  - Tag を表示することができる
+- other
+  - Blogが追加されたときにビルドするようにする
+  - Vercel のドメインを取得する（12 月？）
 
-First, run the development server:
+### Contentful Memo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Space...データの置き場で、記事データ（Entity）を管理する。
+- 記事データは Content Model（タイトル、本文、日付など）どんな項目で構成するかという雛形の定義を元に作られる。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 参考URL
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- https://github.com/contentful/nextjs-tailwind-blog/blob/4cdcde9c45174d9c28a21261198e215dc9b01e57/src/app/articles/%5Bslug%5D/page.tsx#L28
+- https://www.contentful.com/blog/build-blog-next-js-tailwind-css-contentful/
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [型定義ファイルを作成して body を表示する](https://silurus.dev/articles/7DJobP47XUTkDjNavzyf2s)(https://blog.chick-p.work/blog/contentful-nextjs-blog/)
