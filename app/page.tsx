@@ -22,7 +22,7 @@ export default function Home() {
         return (
           <div
             key={entry.sys.id}
-            className=" border-black rounded-lg border-2 p-4 h-2/5 mt-10 hover:bg-slate-100 hover:border-slate-300"
+            className="flex items-center justify-center border-black rounded-lg border-2 p-4 h-2/5 mt-10 hover:bg-slate-100 hover:border-slate-300"
           >
             <Link href={`blog/${entry.sys.id}`}>
               <h2>{entry.fields.title?.toString()}</h2>
