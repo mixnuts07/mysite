@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <main className="flex flex-col items-center min-w-full min-h-screen bg-white text-black font-mono">
           <Header />
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
