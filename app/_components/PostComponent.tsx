@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, {ImageLoader, ImageLoaderProps} from "next/image";
 import {Block, BLOCKS, Inline, MARKS} from "@contentful/rich-text-types";
 import {documentToReactComponents, NodeRenderer, Options} from "@contentful/rich-text-react-renderer";
 import { Document } from "@contentful/rich-text-types";
@@ -29,18 +29,16 @@ type PostTypeProps = {
     props: PostType
 }
 
+// const contentfulImage: ImageLoader = ({src, width}: ImageLoaderProps) => {
+//     return `${src}?w=${width}`
+// }
+
 const options: Options = {
     renderMark: {
         [MARKS.BOLD]: (children: ReactNode) => <span className="font-extrabold">{children}</span>,
         [MARKS.UNDERLINE]: (children: ReactNode) => <span className='underline'>{children}</span>,
         [MARKS.ITALIC]: (children: ReactNode) => <span className='italic'>{children}</span>,
-        [MARKS.CODE]: (children: ReactNode) => {
-            return (
-                <pre>
-                    <code className=''>{children}</code>,
-                </pre>
-            )
-        }
+        [MARKS.CODE]: (children: ReactNode) => <code>{children}</code>,
     },
     renderNode: {
         [BLOCKS.PARAGRAPH]: (node: Block | Inline, children: ReactNode) => <p className="mb-3">{children}</p>,
@@ -61,11 +59,11 @@ const options: Options = {
             </span>
         )
         },
-        [BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline, children: ReactNode) => {
-            const src = "https://" + node.data.target.fields.file.url
-            const height = node.data.target.fields.file.details.height || 100
-            const width = node.data.target.fields.file.details.height || 100
-            return <Image src={src} height={height} width={width} alt='image'/>
+        [BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => {
+            const src = `https://${node.data.target.fields.file.url}`
+            const height = node.data.target.fields.file.details.image.height || 500
+            const width = node.data.target.fields.file.details.image.width || 500
+            return <Image src={src} height={height} width={width} alt={`${node.data.target.fields.description}`}/>
         },
         [BLOCKS.TABLE]: (node: Block | Inline, children: ReactNode) => <span className='bg-red-500'>{children}</span>,
         [BLOCKS.TABLE_HEADER_CELL]: (node: Block | Inline, children: ReactNode) => <span className='bg-green-500'>{children}</span>,
