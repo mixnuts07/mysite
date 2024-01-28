@@ -1,11 +1,8 @@
-import {client} from "@/contentful";
+import { fetchEntry } from "@/contentful";
 import PostComponent from "@/app/_components/PostComponent";
-import {BlogItem} from "@/types";
 
-export default async function Page() {
-// export default async function Page({ params }: { params: { id: string } }) {
-  const id = '4HhkN8Z422ZUp8QW7QoUgl'
-  const entry = await fetchEntry(id);
+export default async function Page({ params }: { params: { id: string } }) {
+  const entry = await fetchEntry(params.id);
   // const entry = await fetchEntry(params.id);
   const { title, body } = entry.fields;
   const { sys } = entry;
@@ -20,16 +17,4 @@ export default async function Page() {
       <PostComponent props={{title,body, updatedAt}} />
     </div>
   );
-}
-
-export async function fetchEntry(id: string): Promise<BlogItem> {
-    const options = {
-        content_type: "mySite",
-        "sys.id[match]": id,
-    };
-    const entry = await client.getEntries(options);
-    console.log('--entry--')
-    console.log(entry)
-
-    return entry.items[0] as unknown as BlogItem;
 }
