@@ -23,10 +23,8 @@ export async function fetchEntry(id: string): Promise<BlogItem> {
     "sys.id[match]": id,
   };
   const entry = await client.getEntries(options);
-  return entry.items[0] as unknown as BlogItem;
-}
+  console.log('--entry--')
+  console.log(entry)
 
-export async function fetchAssets() {
-  const assets = await client.getAssets();
-  return assets.items ? assets.items : [];
+  return entry.items[0] as unknown as BlogItem;
 }

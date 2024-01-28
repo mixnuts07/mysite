@@ -15,14 +15,13 @@
   - Blogが追加されたときにビルドするようにする
   - Vercel のドメインを取得する（12 月？）
 
-### Contentful Memo
+### 参考記事
 
-- Space...データの置き場で、記事データ（Entity）を管理する。
-- 記事データは Content Model（タイトル、本文、日付など）どんな項目で構成するかという雛形の定義を元に作られる。
+- [nextjs-tailwind-blog](https://github.com/contentful/nextjs-tailwind-blog/blob/4cdcde9c45174d9c28a21261198e215dc9b01e57/src/app/articles/%5Bslug%5D/page.tsx#L28)
+- [What is rich text?](https://www.contentful.com/developers/docs/concepts/rich-text/)
+- [Rendering Contentful Rich Text with Javascript](https://www.contentful.com/developers/docs/javascript/tutorials/rendering-contentful-rich-text-with-javascript/)
 
-### 参考URL
 
-- https://github.com/contentful/nextjs-tailwind-blog/blob/4cdcde9c45174d9c28a21261198e215dc9b01e57/src/app/articles/%5Bslug%5D/page.tsx#L28
-- https://www.contentful.com/blog/build-blog-next-js-tailwind-css-contentful/
-- [型定義ファイルを作成して body を表示する](https://silurus.dev/articles/7DJobP47XUTkDjNavzyf2s)(https://blog.chick-p.work/blog/contentful-nextjs-blog/)
-- [Contentful + Next.js + Vercel でブログを作る](https://blog.chick-p.work/blog/contentful-nextjs-blog/#create-nextjs-contentful)
+### 参考サイトUI
+- https://piyopanman.dev/articles/
+- https://www.oshino.meme/about
