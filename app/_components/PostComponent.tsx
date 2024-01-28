@@ -4,11 +4,15 @@ import {documentToReactComponents, NodeRenderer, Options} from "@contentful/rich
 import { Document } from "@contentful/rich-text-types";
 import {ReactNode} from "react";
 export default function PostComponent({props}: PostTypeProps) {
+    // console.log('--body--')
+    // console.log(props.body)
     return (
         <article>
-            <title>{props.title}</title>
-            <time dateTime={props.updatedAt}></time>
-            <article>
+        <article className="mt-10 flex flex-col justify-center items-center mx-10">
+            <h1 className='font-sans font-medium font-extrabold text-2xl first-line:uppercase first-letter:text-5xl first-letter:mr-1'>{props.title}</h1>
+            <time dateTime={props.updatedAt} className='pt-3 pb-10 font-sans font-thin text-gray-500 text-xl'>{props.updatedAt}</time>
+        </article>
+            <article className='break-words space-y-5'>
                 {documentToReactComponents(props.body, options)}
             </article>
         </article>
@@ -28,19 +32,26 @@ type PostTypeProps = {
 const options: Options = {
     renderMark: {
         [MARKS.BOLD]: (children: ReactNode) => <span className="font-extrabold">{children}</span>,
-        [MARKS.UNDERLINE]: (children: ReactNode) => <span className='underline'>{children}</span>
+        [MARKS.UNDERLINE]: (children: ReactNode) => <span className='underline'>{children}</span>,
+        [MARKS.ITALIC]: (children: ReactNode) => <span className='italic'>{children}</span>,
+        [MARKS.CODE]: (children: ReactNode) => {
+            return (
+                <pre>
+                    <code className=''>{children}</code>,
+                </pre>
+            )
+        }
     },
     renderNode: {
-        [BLOCKS.PARAGRAPH]: (node: Block | Inline, children: ReactNode) => <p className="align-center">{children}</p>,
-        [BLOCKS.HEADING_1]: (node: Block | Inline, children: ReactNode) => <h1 className='bg-green-200'>{children}</h1>,
-        [BLOCKS.HEADING_2]: (node: Block | Inline, children: ReactNode) => <h1 className='bg-green-200'>{children}</h1>,
-        [BLOCKS.HEADING_3]: (node: Block | Inline, children: ReactNode) => <h1 className='bg-green-200'>{children}</h1>,
-        [BLOCKS.HEADING_4]: (node: Block | Inline, children: ReactNode) => <h1 className='bg-green-200'>{children}</h1>,
-        [BLOCKS.HEADING_5]: (node: Block | Inline, children: ReactNode) => <h1 className='bg-green-200'>{children}</h1>,
-        [BLOCKS.HEADING_6]: (node: Block | Inline, children: ReactNode) => <h1 className='bg-green-200'>{children}</h1>,
-        [BLOCKS.OL_LIST]: (node: Block | Inline, children: ReactNode) => <ol className='bg-gray-500'>{children}</ol>,
-        [BLOCKS.UL_LIST]: (node: Block | Inline, children: ReactNode) => <ul className='bg-gray-500'>{children}</ul>,
-        [BLOCKS.LIST_ITEM]: (node: Block | Inline, children: ReactNode) => <li>{children}</li>,
+        [BLOCKS.PARAGRAPH]: (node: Block | Inline, children: ReactNode) => <p className="mb-3">{children}</p>,
+        [BLOCKS.HEADING_1]: (node: Block | Inline, children: ReactNode) => <h1 className='text-5xl font-extrabold'>{children}</h1>,
+        [BLOCKS.HEADING_2]: (node: Block | Inline, children: ReactNode) => <h1 className='text-4xl font-bold'>{children}</h1>,
+        [BLOCKS.HEADING_3]: (node: Block | Inline, children: ReactNode) => <h1 className='text-3xl font-bold'>{children}</h1>,
+        [BLOCKS.HEADING_4]: (node: Block | Inline, children: ReactNode) => <h1 className='text-2xl font-bold'>{children}</h1>,
+        [BLOCKS.HEADING_5]: (node: Block | Inline, children: ReactNode) => <h1 className='text-xl font-bold'>{children}</h1>,
+        [BLOCKS.HEADING_6]: (node: Block | Inline, children: ReactNode) => <h1 className='text-lg font-bold'>{children}</h1>,
+        [BLOCKS.OL_LIST]: (node: Block | Inline, children: ReactNode) => <ol className='list-decimal ml-4'>{children}</ol>,
+        [BLOCKS.UL_LIST]: (node: Block | Inline, children: ReactNode) => <ul className='list-disc ml-4'>{children}</ul>,
         [BLOCKS.QUOTE]: (node: Block | Inline, children: ReactNode) => {
             return (
             <span className="text-gray-500 dark:text-gray-400 text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
