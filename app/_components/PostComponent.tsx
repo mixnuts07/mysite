@@ -3,6 +3,7 @@ import {Block, BLOCKS, Inline, MARKS} from "@contentful/rich-text-types";
 import {documentToReactComponents, NodeRenderer, Options} from "@contentful/rich-text-react-renderer";
 import { Document } from "@contentful/rich-text-types";
 import {ReactNode} from "react";
+
 export default function PostComponent({props}: PostTypeProps) {
     // console.log('--body--')
     // console.log(props.body)
@@ -28,10 +29,6 @@ type PostType = {
 type PostTypeProps = {
     props: PostType
 }
-
-// const contentfulImage: ImageLoader = ({src, width}: ImageLoaderProps) => {
-//     return `${src}?w=${width}`
-// }
 
 const options: Options = {
     renderMark: {

@@ -10,6 +10,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const updatedAt = sys.updatedAt.split("T")[0];
   return (
     <div className="w-3/5 mx-10">
+      <title>{title}</title>
       <PostComponent props={{title,body, updatedAt}} />
     </div>
   );
