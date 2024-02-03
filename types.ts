@@ -28,5 +28,6 @@ type IdType = Pick<EntryType['sys'], 'id'>
 type UpdatedAtType = Pick<EntryType['sys'], 'updatedAt'>
 type TitleType = Pick<EntryType['fields'], 'title'>
 type BodyType = Pick<EntryType['fields'], 'body'>
+type MetadataType = Pick<EntryType['metadata'], 'tags'>
 type BlogType = IdType & UpdatedAtType & TitleType
-type ArticleType = TitleType & BodyType & UpdatedAtType
+type ArticleType = TitleType & BodyType & UpdatedAtType & MetadataType

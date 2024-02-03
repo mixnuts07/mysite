@@ -9,8 +9,8 @@ import Header from "@/app/_components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "山本和武のサイト",
-  description: "技術やプロダクト開発、決算分析など興味あることを投稿するよ",
+  title: "mixed_nuts_nuts",
+  description: "山本和武のサイト。技術やプロダクト開発、決算分析など興味あることを投稿するよ",
 };
 
 export default function RootLayout({
@@ -22,8 +22,10 @@ export default function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <main className="flex flex-col items-center min-w-4/5 min-h-screen bg-white text-black">
-          <Header />
+          <Header/>
+          <div className='mt-20'>
           {children}
+          </div>
           <Analytics />
           <SpeedInsights />
         </main>
