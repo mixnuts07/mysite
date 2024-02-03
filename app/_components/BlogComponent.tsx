@@ -17,7 +17,7 @@ export default function BlogComponent({props}: BlogTypeProps) {
                 <h5>{props.updatedAt}</h5>
                 <div>
                 {props.tags.map(tag=> {
-                    return <TagComponent tagName={tag.sys.id}/>
+                    return <TagComponent tagName={tag.sys.id} key={tag.sys.id}/>
                 })}
                 </div>
             </Link>
