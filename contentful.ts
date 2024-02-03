@@ -7,13 +7,13 @@ export const client = contentful.createClient({
 
 export async function fetchEntries(
     limit = 2
-) {
+): Promise<BlogItem[]> {
   const entries = await client.getEntries({
     content_type: "mySite",
     order: ["-sys.createdAt"],
     limit
   })
-  return entries.items as unknown as BlogQueryResult
+  return entries.items as unknown as BlogItem[]
 }
 export async function fetchEntry(id: string): Promise<BlogItem> {
   const entries = await client.getEntries({
@@ -24,26 +24,13 @@ export async function fetchEntry(id: string): Promise<BlogItem> {
   return entries.items[0] as unknown as BlogItem
 }
 
-// export async function fetchEntries(
-//   limit?: number
-// ): Promise<BlogQueryResult | undefined> {
-//   const entries = await client.getEntries({
-//     content_type: "mySite",
-//     order: ["-sys.createdAt"],
-//     limit: limit ? limit : undefined,
-//   });
-//   if (entries.items) return entries as unknown as BlogQueryResult;
-// }
-
-type BlogItem = {
-  sys: any;
+export type BlogItem = {
+  sys: {
+    id: string;
+    updatedAt: string
+  };
   fields: {
     title: string;
     body: string;
   };
-};
-type BlogItems = ReadonlyArray<BlogItem>;
-
-export type BlogQueryResult = {
-  items: BlogItems;
 };

@@ -1,22 +1,22 @@
 "use client";
-import {BlogQueryResult, fetchEntries} from "@/contentful";
+import {BlogItem, fetchEntries} from "@/contentful";
 import { useEffect, useState } from "react";
 import BlogComponent from "@/app/_components/BlogComponent";
 
 export default function Home() {
-  const [entries, setEntries] = useState<BlogQueryResult | undefined>(
+  const [entries, setEntries] = useState<BlogItem[] | undefined>(
     undefined
   );
   useEffect(() => {
     (async () => {
-      const getEntries = await fetchEntries();
+      const getEntries = await fetchEntries(2);
       setEntries(getEntries);
     })();
   }, []);
 
   return (
     <main className="w-4/5">
-      {entries?.items.map((entry) => {
+      {entries?.map((entry) => {
         const dateOnly = entry.sys.updatedAt.split("T")[0];
         return (
           <div
