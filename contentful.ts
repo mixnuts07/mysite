@@ -20,7 +20,6 @@ export async function fetchEntry(id: string): Promise<BlogItem> {
     content_type: "mySite",
     order: ["-sys.createdAt"],
   })
-  console.log(entries)
   return entries.items[0] as unknown as BlogItem
 }
 
