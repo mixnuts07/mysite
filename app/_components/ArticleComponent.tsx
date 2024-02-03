@@ -2,7 +2,9 @@ import Image, {ImageLoader, ImageLoaderProps} from "next/image";
 import {Block, BLOCKS, Inline, MARKS} from "@contentful/rich-text-types";
 import {documentToReactComponents, NodeRenderer, Options} from "@contentful/rich-text-react-renderer";
 import { Document } from "@contentful/rich-text-types";
-import {ReactNode} from "react";
+import React, {ReactNode} from "react";
+import remarkGfm from "remark-gfm";
+import Markdown from "react-markdown";
 
 export default function ArticleComponent({props}: PostTypeProps) {
     // console.log('--body--')
@@ -14,7 +16,7 @@ export default function ArticleComponent({props}: PostTypeProps) {
             <time dateTime={props.updatedAt} className='pt-3 pb-10 font-sans font-thin text-gray-500 text-xl'>{props.updatedAt}</time>
         </article>
             <article className='break-words space-y-5'>
-                {documentToReactComponents(props.body, options)}
+                <Markdown remarkPlugins={[remarkGfm]} className='prose prose-stone prose-a:text-blue-600'>{props.body}</Markdown>
             </article>
         </article>
     )
@@ -22,7 +24,7 @@ export default function ArticleComponent({props}: PostTypeProps) {
 
 type PostType = {
     title: string
-    body: Document
+    body: string
     updatedAt: string
 }
 

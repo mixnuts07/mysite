@@ -6,6 +6,7 @@
 - Vercel のドメインを取得する
 - highlight.jsの導入 
 - 本番環境だとimageが表示されない問題解決
+- Boxコンポーネントにする
 - 
 - 投稿をマークダウンで書くためにBodyをTextに変える。それに伴いライブラリもmarkdownをパースするやつに変えたい。
 - Contentful上でLive Preview機能が欲しいので実装する

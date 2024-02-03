@@ -1,6 +1,5 @@
 import { fetchEntry } from "@/contentful";
 import ArticleComponent from "@/app/_components/ArticleComponent";
-import {Metadata} from "next";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const entry = await fetchEntry(params.id);

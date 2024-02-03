@@ -1,8 +1,6 @@
 "use client";
-import { fetchEntries } from "@/contentful";
+import {BlogQueryResult, fetchEntries} from "@/contentful";
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { BlogQueryResult } from "@/types";
 import BlogComponent from "@/app/_components/BlogComponent";
 
 export default function Home() {
@@ -11,7 +9,7 @@ export default function Home() {
   );
   useEffect(() => {
     (async () => {
-      const getEntries = await fetchEntries(2);
+      const getEntries = await fetchEntries();
       setEntries(getEntries);
     })();
   }, []);

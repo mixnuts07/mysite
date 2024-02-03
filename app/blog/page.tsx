@@ -1,8 +1,6 @@
-import { fetchEntries } from "@/contentful";
-import Link from "next/link";
+import { fetchEntries} from "@/contentful";
 import React from "react";
 import BlogComponent from "@/app/_components/BlogComponent";
-import {id} from "postcss-selector-parser";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function Blog() {

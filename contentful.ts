@@ -1,5 +1,4 @@
 import * as contentful from "contentful";
-import { BlogItem, BlogQueryResult } from "./types";
 
 export const client = contentful.createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID || "",
@@ -7,24 +6,44 @@ export const client = contentful.createClient({
 });
 
 export async function fetchEntries(
-  limit?: number
-): Promise<BlogQueryResult | undefined> {
+    limit = 2
+) {
   const entries = await client.getEntries({
     content_type: "mySite",
     order: ["-sys.createdAt"],
-    limit: limit ? limit : undefined,
-  });
-  if (entries.items) return entries as unknown as BlogQueryResult;
+    limit
+  })
+  return entries.items as unknown as BlogQueryResult
 }
-
 export async function fetchEntry(id: string): Promise<BlogItem> {
-  const options = {
+  const entries = await client.getEntries({
     content_type: "mySite",
-    "sys.id[match]": id,
-  };
-  const entry = await client.getEntries(options);
-  console.log('--entry--')
-  console.log(entry)
-
-  return entry.items[0] as unknown as BlogItem;
+    order: ["-sys.createdAt"],
+  })
+  console.log(entries)
+  return entries.items[0] as unknown as BlogItem
 }
+
+// export async function fetchEntries(
+//   limit?: number
+// ): Promise<BlogQueryResult | undefined> {
+//   const entries = await client.getEntries({
+//     content_type: "mySite",
+//     order: ["-sys.createdAt"],
+//     limit: limit ? limit : undefined,
+//   });
+//   if (entries.items) return entries as unknown as BlogQueryResult;
+// }
+
+type BlogItem = {
+  sys: any;
+  fields: {
+    title: string;
+    body: string;
+  };
+};
+type BlogItems = ReadonlyArray<BlogItem>;
+
+export type BlogQueryResult = {
+  items: BlogItems;
+};
