@@ -1,14 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import { BlogTypeProps } from "@/types";
 
-type BlogType = {
-    id: string
-    title: string
-    updatedAt: string
-}
-type BlogTypeProps = {
-    props: BlogType
-}
+
 export default function BlogComponent({props}: BlogTypeProps) {
     return (
         <div

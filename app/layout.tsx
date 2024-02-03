@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/app/_components/Header";
+import React from "react";
+import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Inter } from "next/font/google";
+import Header from "@/app/_components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "my site",
-  description: "this is a site",
+  title: "山本和武のサイト",
+  description: "技術やプロダクト開発、決算分析など興味あることを投稿するよ",
 };
 
 export default function RootLayout({
@@ -18,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className={inter.className}>
-        <main className="flex flex-col items-center min-w-full min-h-screen bg-white text-black font-mono">
+        <main className="flex flex-col items-center min-w-4/5 min-h-screen bg-white text-black">
           <Header />
           {children}
           <Analytics />

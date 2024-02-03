@@ -1,31 +1,33 @@
 "use client";
-import {BlogItem, fetchEntries} from "@/contentful";
+import { fetchEntries } from "@/contentful";
 import { useEffect, useState } from "react";
 import BlogComponent from "@/app/_components/BlogComponent";
+import { UpdatedAt } from "@/app/lib";
+import { EntryType } from "@/types";
 
 export default function Home() {
-  const [entries, setEntries] = useState<BlogItem[] | undefined>(
+  const [entries, setEntries] = useState<EntryType[] | undefined>(
     undefined
   );
   useEffect(() => {
     (async () => {
-      const getEntries = await fetchEntries(2);
-      setEntries(getEntries);
+      const entries = await fetchEntries(2);
+      setEntries(entries);
     })();
   }, []);
 
   return (
-    <main className="w-4/5">
+    <div>
       {entries?.map((entry) => {
-        const dateOnly = entry.sys.updatedAt.split("T")[0];
         return (
           <div
             key={entry.sys.id}
           >
-           <BlogComponent props={{id: entry.sys.id, title: entry.fields.title.toString(), updatedAt: dateOnly}} />
+            {/*<h1>{entry.metadata.tags[0].sys.id}</h1>*/}
+           <BlogComponent props={{id: entry.sys.id, title: entry.fields.title, updatedAt: UpdatedAt(entry.sys.updatedAt)}} />
           </div>
         );
       })}
-    </main>
+    </div>
   );
 }

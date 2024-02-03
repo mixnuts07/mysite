@@ -2,8 +2,9 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { ArticleTypeProps } from "@/types";
 
-export default function ArticleComponent({props}: PostTypeProps) {
+export default function ArticleComponent({props}: ArticleTypeProps) {
     return (
         <article className='my-10'>
         <article className="mt-10 flex flex-col justify-center items-center mx-10">
@@ -31,13 +32,4 @@ function CodeBlock ({ language, value }: {value: string, language?: string}) {
     return (
         <SyntaxHighlighter style={okaidia} language={language} children={value} />
     );
-}
-type PostType = {
-    title: string
-    body: string
-    updatedAt: string
-}
-
-type PostTypeProps = {
-    props: PostType
 }

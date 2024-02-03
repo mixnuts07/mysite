@@ -1,5 +1,5 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -14,10 +14,10 @@ export default function Header() {
         <Link href="/blog">
           <h1>blog</h1>
         </Link>
-        <Link href="https://twitter.com/mixed_nuts_nuts" target="_blank">
+        <Link href="https://twitter.com/mixed_nuts_nuts">
           <h1>X</h1>
         </Link>
-        <Link href="https://github.com/mixnuts07" target="_blank">
+        <Link href="https://github.com/mixnuts07">
           <h1>Github</h1>
         </Link>
       </div>
