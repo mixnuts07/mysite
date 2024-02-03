@@ -3,6 +3,7 @@ import { fetchEntries } from "@/contentful";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BlogQueryResult } from "@/types";
+import BlogComponent from "@/app/_components/BlogComponent";
 
 export default function Home() {
   const [entries, setEntries] = useState<BlogQueryResult | undefined>(
@@ -22,12 +23,8 @@ export default function Home() {
         return (
           <div
             key={entry.sys.id}
-            className="flex items-center justify-center border-black rounded-lg border-2 p-4 h-2/5 mt-10 hover:bg-slate-100 hover:border-slate-300"
           >
-            <Link href={`blog/${entry.sys.id}`}>
-              <h2>{entry.fields.title?.toString()}</h2>
-              <h5>{dateOnly}</h5>
-            </Link>
+           <BlogComponent props={{id: entry.sys.id, title: entry.fields.title.toString(), updatedAt: dateOnly}} />
           </div>
         );
       })}

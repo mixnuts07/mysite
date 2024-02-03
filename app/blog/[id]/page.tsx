@@ -1,5 +1,5 @@
 import { fetchEntry } from "@/contentful";
-import PostComponent from "@/app/_components/PostComponent";
+import ArticleComponent from "@/app/_components/ArticleComponent";
 import {Metadata} from "next";
 
 export default async function Page({ params }: { params: { id: string } }) {
@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   return (
     <div className="w-3/5 mx-10">
       <title>{title}</title>
-      <PostComponent props={{title,body, updatedAt}} />
+      <ArticleComponent props={{title,body, updatedAt}} />
     </div>
   );
 }

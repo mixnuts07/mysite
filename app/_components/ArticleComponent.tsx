@@ -4,11 +4,11 @@ import {documentToReactComponents, NodeRenderer, Options} from "@contentful/rich
 import { Document } from "@contentful/rich-text-types";
 import {ReactNode} from "react";
 
-export default function PostComponent({props}: PostTypeProps) {
+export default function ArticleComponent({props}: PostTypeProps) {
     // console.log('--body--')
     // console.log(props.body)
     return (
-        <article>
+        <article className='my-10'>
         <article className="mt-10 flex flex-col justify-center items-center mx-10">
             <h1 className='font-sans font-medium font-extrabold text-2xl first-line:uppercase first-letter:text-5xl first-letter:mr-1'>{props.title}</h1>
             <time dateTime={props.updatedAt} className='pt-3 pb-10 font-sans font-thin text-gray-500 text-xl'>{props.updatedAt}</time>
