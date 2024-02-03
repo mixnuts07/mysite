@@ -9,7 +9,7 @@ export default async function Blog() {
   return (
     <div>
       {entries.map((entry) => {
-        return <BlogComponent key={entry.sys.id} props={{id: entry.sys.id, title: entry.fields.title, updatedAt: UpdatedAt(entry.sys.updatedAt)}}/>
+        return <BlogComponent key={entry.sys.id} props={{id: entry.sys.id, title: entry.fields.title, updatedAt: UpdatedAt(entry.sys.updatedAt), tags: entry.metadata.tags}}/>
       })}
     </div>
   );

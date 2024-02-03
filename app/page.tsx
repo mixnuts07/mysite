@@ -23,8 +23,7 @@ export default function Home() {
           <div
             key={entry.sys.id}
           >
-            {/*<h1>{entry.metadata.tags[0].sys.id}</h1>*/}
-           <BlogComponent props={{id: entry.sys.id, title: entry.fields.title, updatedAt: UpdatedAt(entry.sys.updatedAt)}} />
+           <BlogComponent props={{id: entry.sys.id, title: entry.fields.title, updatedAt: UpdatedAt(entry.sys.updatedAt), tags: entry.metadata.tags}} />
           </div>
         );
       })}
