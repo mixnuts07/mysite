@@ -10,13 +10,5 @@ module.exports = {
                 hostname: "images.ctfassets.net"
             }
         ]
-    },
-    async rewrites() {
-      return [
-          {
-              source: '/:path*',
-              destination: '/'
-          }
-      ]
     }
 }
