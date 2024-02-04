@@ -1,6 +1,6 @@
 import { fetchEntry } from "../../api/contentful";
 import ArticleComponent from "@/app/_components/ArticleComponent";
-import {UpdatedAt} from "@/app/lib";
+import { UpdatedAt } from "@/app/lib";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const entry = await fetchEntry(params.id);
@@ -9,7 +9,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const { sys } = entry;
   const updatedAt = UpdatedAt(sys.updatedAt)
   return (
-    <div className="mx-10">
+    <div>
       <title>{title}</title>
       <ArticleComponent props={{title,body, updatedAt, tags}} />
     </div>
