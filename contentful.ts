@@ -17,9 +17,6 @@ export async function fetchEntries(
   return entries.items as unknown as EntryType[]
 }
 export async function fetchEntry(id: string): Promise<EntryType> {
-  const entries = await client.getEntries({
-    content_type: "mySite",
-    order: ["-sys.updatedAt"],
-  })
-  return entries.items[0] as unknown as EntryType
+  const entry = await client.getEntry(id)
+  return entry as unknown as EntryType
 }

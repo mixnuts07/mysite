@@ -22,6 +22,7 @@ export default function Home() {
         return (
           <div
             key={entry.sys.id}
+            className='mx-5 min-w-4/5'
           >
            <BlogComponent props={{id: entry.sys.id, title: entry.fields.title, updatedAt: UpdatedAt(entry.sys.updatedAt), tags: entry.metadata.tags}} />
           </div>
