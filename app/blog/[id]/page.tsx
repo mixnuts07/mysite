@@ -1,4 +1,4 @@
-import { fetchEntry } from "@/contentful";
+import { fetchEntry } from "../../api/contentful";
 import ArticleComponent from "@/app/_components/ArticleComponent";
 import {UpdatedAt} from "@/app/lib";
 

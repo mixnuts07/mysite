@@ -1,5 +1,5 @@
 "use client";
-import { fetchEntries } from "@/contentful";
+import { fetchEntries } from "@/app/api/contentful";
 import { useEffect, useState } from "react";
 import BlogComponent from "@/app/_components/BlogComponent";
 import { UpdatedAt } from "@/app/lib";

@@ -1,9 +1,8 @@
 import React from "react";
-import { fetchEntries } from "@/contentful";
+import { fetchEntries } from "../api/contentful";
 import BlogComponent from "@/app/_components/BlogComponent";
 import { UpdatedAt } from "@/app/lib";
 
-// eslint-disable-next-line @next/next/no-async-client-component
 export default async function Blog() {
   const entries = await fetchEntries();
   return (
