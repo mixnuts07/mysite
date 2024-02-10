@@ -20,6 +20,7 @@ export default function ArticleComponent({props}: ArticleTypeProps) {
             >
             <Markdown
                 remarkPlugins={[remarkGfm]}
+                className='a:underline a:underline-offset-4'
                 // className='prose prose-a:underline prose-a:underline-offset-4'
                 components={{
                     code({ node,  className, children, ...props}) {
@@ -31,7 +32,7 @@ export default function ArticleComponent({props}: ArticleTypeProps) {
                                 <CodeBlock language={match ? match[1] : undefined}
                                            value={String(children).replace(/\n$/, '')} {...props} />
                                 :
-                                <code className='bg-slate-200 break-words whitespace-pre-wrap'>
+                                <code className={`inline p-0.5 font-mono text-blue-500 bg-gray-100 rounded-md border border-gray-300 break-words whitespace-pre-wrap`}>
                                     {children}
                                 </code>
                                 }
