@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "mixed_nuts_nuts",
-  description: "山本和武のサイト。技術やプロダクト開発、決算分析など興味あることを投稿するよ",
+  description: "技術やプロダクト開発、決算分析など興味あることを投稿するよ",
 };
 
 export default function RootLayout({
