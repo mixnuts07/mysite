@@ -9,8 +9,8 @@ import {TagsComponent} from "@/app/_components/TagsComponent";
 
 export default function ArticleComponent({props}: ArticleTypeProps) {
     return (
-        <article className='mt-10 mb-5 flex flex-col justify-center items-center'>
-            <article className="space-y-3 flex flex-col items-center justify-center md:px-0">
+        <article className='mt-10 mb-5 flex flex-col justify-center items-center px-5'>
+            <article className="space-y-3 flex flex-col items-center justify-center">
                 <TitleComponent title={props.title} className='text-xl'/>
                 <UpdatedAtComponent date={props.updatedAt}/>
                 <TagsComponent tags={props.tags}/>
@@ -25,13 +25,18 @@ export default function ArticleComponent({props}: ArticleTypeProps) {
                     code({ node,  className, children, ...props}) {
                     const inline = node?.tagName === "code" && !className?.includes('language-')
                         const match = /language-(\w+)/.exec(className || '');
-                        return !inline ? (
-                            <CodeBlock language={match ? match[1] : undefined} value={String(children).replace(/\n$/, '')} {...props} />
-                        ) : (
-                            <code className={className} {...props}>
-                                {children}
-                            </code>
-                        );
+                        return (
+                            <div className='max-w-sm md:max-w-full pt-5'>
+                                {!inline ?
+                                <CodeBlock language={match ? match[1] : undefined}
+                                           value={String(children).replace(/\n$/, '')} {...props} />
+                                :
+                                <code className='bg-slate-200 break-words whitespace-pre-wrap'>
+                                    {children}
+                                </code>
+                                }
+                            </div>
+                        )
                 }}}
             >
                 {props.body}
