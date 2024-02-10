@@ -6,11 +6,15 @@ import {ArticleTypeProps} from "@/types";
 import {TitleComponent} from "@/app/_components/TitleComponent";
 import {UpdatedAtComponent} from "@/app/_components/UpdatedAtComponent";
 import {TagsComponent} from "@/app/_components/TagsComponent";
+import Image from "next/image";
 
 export default function ArticleComponent({props}: ArticleTypeProps) {
     return (
         <article className='mt-10 mb-5 flex flex-col justify-center items-center px-5'>
             <article className="space-y-3 flex flex-col items-center justify-center">
+                {props.url != '' &&
+                <Image src={props.url} alt='no image' width={200} height={200}/>
+                }
                 <TitleComponent title={props.title} className='text-xl'/>
                 <UpdatedAtComponent date={props.updatedAt}/>
                 <TagsComponent tags={props.tags}/>
