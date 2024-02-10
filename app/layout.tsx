@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        <main className="flex flex-col items-center w-full min-h-screen bg-white text-black">
+        <main className="flex flex-col items-center min-w-screen min-h-screen bg-white text-black">
           <Header/>
           <div className='mt-20'>
           {children}
