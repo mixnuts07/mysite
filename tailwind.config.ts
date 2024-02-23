@@ -7,19 +7,6 @@ const config: Config = {
     './_components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {
-    extend: {
-      typography: () => ({
-        DEFAULT: {
-          css: {
-            h3: {
-              textDecoration: 'underline'
-            }
-          }
-        }
-      })
-    }
-  },
   plugins: [
     require('@tailwindcss/typography')
   ],

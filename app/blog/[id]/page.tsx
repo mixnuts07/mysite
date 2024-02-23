@@ -9,7 +9,8 @@ export default async function Page({ params }: { params: { id: string } }) {
   const { sys } = entry;
   const updatedAt = UpdatedAt(sys.updatedAt)
   const url = Thumbnail(entry.fields?.thumbnail?.fields?.file?.url)
-  console.log(url)
+  console.log('=======')
+  console.log(entry.metadata.tags)
   return (
     <div className='mb-32'>
       <title>{title}</title>
