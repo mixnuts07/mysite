@@ -3,11 +3,10 @@ import React from "react";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import Header from "@/app/_components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
-
+const inter = Montserrat({subsets: ["latin"]})
 export const metadata: Metadata = {
   title: "mixed_nuts_nuts",
   description: "技術やプロダクト開発、決算分析など興味あることを投稿するよ",

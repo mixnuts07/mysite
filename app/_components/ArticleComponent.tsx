@@ -1,7 +1,7 @@
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {okaidia} from "react-syntax-highlighter/dist/esm/styles/prism";
+import {okaidia, a11yDark, coldarkDark} from "react-syntax-highlighter/dist/esm/styles/prism";
 import {ArticleTypeProps} from "@/types";
 import {TitleComponent} from "@/app/_components/TitleComponent";
 import {UpdatedAtComponent} from "@/app/_components/UpdatedAtComponent";
@@ -20,42 +20,40 @@ export default function ArticleComponent({props}: ArticleTypeProps) {
                 <TagsComponent tags={props.tags}/>
             </article>
             <div
-                className='mt-10 break-words space-y-5 max-w-full'
+                className='mt-10 break-words space-y-5 max-w-sm md:max-w-full mx-auto'
             >
-            <Markdown
-                remarkPlugins={[remarkGfm]}
-                className='a:underline a:underline-offset-4'
-                // className='prose prose-a:underline prose-a:underline-offset-4'
-                components={{
-                    code({ node,  className, children, ...props}) {
-                    const inline = node?.tagName === "code" && !className?.includes('language-')
-                        const match = /language-(\w+)/.exec(className || '');
-                        return (
-                            <div className='max-w-sm md:max-w-full pt-5'>
-                                {!inline ?
-                                <CodeBlock language={match ? match[1] : undefined}
-                                           value={String(children).replace(/\n$/, '')} {...props} />
-                                :
-                                <code className={`inline p-0.5 font-mono text-blue-500 bg-gray-100 rounded-md border border-gray-300 break-words whitespace-pre-wrap`}>
-                                    {children}
-                                </code>
-                                }
-                            </div>
-                        )
-                }}}
-            >
-                {props.body}
-            </Markdown>
+                <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className='prose'
+                    components={{
+                        code({ node,  className, children, ...props}) {
+                        const inline = node?.tagName === "code" && !className?.includes('language-')
+                            const match = /language-(\w+)/.exec(className || '');
+                            return (
+                                <div className='max-w-sm md:max-w-full pt-5'>
+                                    {!inline ?
+                                        <CodeBlock language={match ? match[1] : undefined}
+                                                   value={String(children).replace(/\n$/, '')} {...props} />
+                                        :
+                                        <code
+                                            className="inline-block font-mono text-blue-500 bg-gray-100 rounded-md border border-gray-300 break-words whitespace-nowrap overflow-x-auto">
+                                            {children}
+                                        </code>
+                                    }
+                                </div>
+                            )
+                        }
+                    }}
+                >
+                    {props.body}
+                </Markdown>
             </div>
-            {/*<div className='mt-10 break-words space-y-5 max-w-full flex justify-center items-center'>*/}
-            {/*    {props.body}*/}
-            {/*</div>*/}
         </article>
     )
 }
 
 function CodeBlock({language, value}: { value: string, language?: string }) {
     return (
-        <SyntaxHighlighter style={okaidia} language={language} children={value}/>
+        <SyntaxHighlighter style={coldarkDark} language={language} children={value} customStyle={{paddingTop: 0}}/>
     );
 }
