@@ -64,6 +64,6 @@ export default function ArticleComponent({props}: ArticleTypeProps) {
 
 function CodeBlock({language, value}: { value: string, language?: string }) {
     return (
-        <SyntaxHighlighter style={coldarkDark} language={language} children={value} customStyle={{paddingTop: 0}}/>
+        <SyntaxHighlighter style={coldarkDark} language={language} children={value} customStyle={{padding: 0, margin:0}}/>
     );
 }
