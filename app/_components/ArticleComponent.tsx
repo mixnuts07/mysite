@@ -1,7 +1,7 @@
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {okaidia, a11yDark, coldarkDark} from "react-syntax-highlighter/dist/esm/styles/prism";
+import {coldarkDark} from "react-syntax-highlighter/dist/esm/styles/prism";
 import {ArticleTypeProps} from "@/types";
 import {TitleComponent} from "@/app/_components/TitleComponent";
 import {UpdatedAtComponent} from "@/app/_components/UpdatedAtComponent";

@@ -1,4 +1,3 @@
-import {TagComponent} from "@/app/_components/TagComponent";
 import { MetadataType } from "@/types";
 
 export function TagsComponent({tags}: MetadataType) {
@@ -8,5 +7,13 @@ export function TagsComponent({tags}: MetadataType) {
                 return <TagComponent tagName={tag.sys.id} key={tag.sys.id}/>
             })}
         </div>
+    )
+}
+
+function TagComponent({ tagName }: { tagName: string }) {
+    return (
+        <h5 className='bg-white text-gray-700 font-bold leading-sm border rounded-full px-3 py-1 text-xs inline-flex items-center'>
+            {tagName}
+        </h5>
     )
 }
