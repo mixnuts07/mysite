@@ -10,7 +10,8 @@ export type EntryType = {
     };
     sys: {
         id: string;
-        updatedAt: string
+        updatedAt: string,
+        createdAt: string,
     };
     fields: {
         title: string;
@@ -33,10 +34,10 @@ export type ArticleTypeProps = {
 }
 
 type IdType = Pick<EntryType['sys'], 'id'>
-type UpdatedAtType = Pick<EntryType['sys'], 'updatedAt'>
+type CreatedAt = Pick<EntryType['sys'], 'createdAt'>
 type TitleType = Pick<EntryType['fields'], 'title'>
 type BodyType = Pick<EntryType['fields'], 'body'>
 type ThumbnailType = Pick<EntryType['fields']['thumbnail']['fields']['file'], 'url'>
 export type MetadataType = Pick<EntryType['metadata'], 'tags'>
-type BlogType = IdType & UpdatedAtType & TitleType & MetadataType
-type ArticleType = TitleType & BodyType & ThumbnailType & UpdatedAtType & MetadataType
+type BlogType = IdType & CreatedAt & TitleType & MetadataType
+type ArticleType = TitleType & BodyType & ThumbnailType & CreatedAt & MetadataType

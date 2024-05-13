@@ -1,4 +1,4 @@
-export function UpdatedAt(date: string) {
+export function CreatedAt(date: string) {
     return date.split("T")[0]
 }
 export function Thumbnail(url?: string){

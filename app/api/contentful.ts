@@ -12,7 +12,7 @@ export async function fetchEntries(
 ): Promise<EntryType[]> {
   const entries = await client.getEntries({
     content_type: "mySite",
-    order: ["-sys.updatedAt"],
+    order: ["-sys.createdAt"],
     limit
   })
   return entries.items as unknown as EntryType[]

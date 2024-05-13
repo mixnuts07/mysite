@@ -4,7 +4,7 @@ import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {coldarkDark} from "react-syntax-highlighter/dist/esm/styles/prism";
 import {ArticleTypeProps} from "@/types";
 import {TitleComponent} from "@/app/_components/TitleComponent";
-import {UpdatedAtComponent} from "@/app/_components/UpdatedAtComponent";
+import {CreatedAtComponent} from "@/app/_components/CreatedAtComponent";
 import {TagsComponent} from "@/app/_components/TagsComponent";
 import Image from "next/image";
 
@@ -16,7 +16,7 @@ export default function ArticleComponent({props}: ArticleTypeProps) {
                 <Image src={props.url} alt='no image' width={200} height={200}/>
                 }
                 <TitleComponent title={props.title} className='text-xl'/>
-                <UpdatedAtComponent date={props.updatedAt}/>
+                <CreatedAtComponent date={props.createdAt}/>
                 <TagsComponent tags={props.tags}/>
             </article>
             <div
