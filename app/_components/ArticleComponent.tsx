@@ -31,9 +31,12 @@ export default function ArticleComponent({props}: ArticleTypeProps) {
                                prose
                                prose-code:before:hidden prose-code:after:hidden
                                prose-a:underline prose-a:underline-offset-4 prose-a:prose-blue
-                               prose-h1:underline prose-h1:underline-offset-8
-                               prose-h2:underline prose-h2:underline-offset-8
-                               prose-h3:underline prose-h3:underline-offset-8
+                               prose-h1:underline prose-h1:underline-offset-4
+                               prose-h2:underline prose-h2:underline-offset-4
+                               prose-h3:underline prose-h3:underline-offset-4
+                               prose-h4:underline prose-h4:underline-offset-4
+                               prose-h5:underline prose-h5:underline-offset-4
+                               prose-h6:underline prose-h7:underline-offset-4
                                '
                     components={{
                         code({ node,  className, children, ...props}) {
