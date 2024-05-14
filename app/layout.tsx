@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={`bg-white ${inter.className}`}>
+    <body className={`bg-white ${inter.className}`}>
         <main className="flex flex-col items-center min-w-screen min-h-screen bg-white text-black">
           <Header/>
           <div className='mt-20'>
