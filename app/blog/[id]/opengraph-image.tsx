@@ -14,31 +14,17 @@ export const size = {
 
 export const contentType = 'image/png'
 
-export const metadata: Metadata = {
-    twitter: {
-        card: "summary_large_image",
-        title: "test",
-        description: "ikeruka"
-    },
-    openGraph: {
-        description: "test description",
-        url: ""
+export async function generateMetadata({params}: {params: {id: string}}): Promise<Metadata> {
+    const entry = await fetchEntry(params.id)
+    const {title, body, thumbnail} = entry.fields;
+    return  {
+        title,
+        description: body,
+        openGraph: {
+            images: [thumbnail?.fields?.file?.url]
+        }
     }
-};
-// export const metadata: Metadata = {
-// title: "mixed_nuts_nuts",
-// description: "興味あることを投稿するよ",
-// twitter: {
-//   card: "summary_large_image",
-//   title: "mixed nuts",
-//   description: "興味あることを投稿していく",
-//   creator: "mixed_nuts_nuts",
-// },
-// openGraph: {
-//   description: "test",
-//   url: ""
-// }
-// };
+}
 // Image generation
 export default async function Image({params}: {params: {id: string}}) {
     const entry = await fetchEntry(params.id)
