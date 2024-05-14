@@ -21,11 +21,24 @@ export const metadata: Metadata = {
         description: "ikeruka"
     },
     openGraph: {
-        description: "test",
+        description: "test description",
         url: ""
     }
 };
-
+// export const metadata: Metadata = {
+// title: "mixed_nuts_nuts",
+// description: "興味あることを投稿するよ",
+// twitter: {
+//   card: "summary_large_image",
+//   title: "mixed nuts",
+//   description: "興味あることを投稿していく",
+//   creator: "mixed_nuts_nuts",
+// },
+// openGraph: {
+//   description: "test",
+//   url: ""
+// }
+// };
 // Image generation
 export default async function Image({params}: {params: {id: string}}) {
     const entry = await fetchEntry(params.id)
