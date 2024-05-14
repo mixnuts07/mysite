@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     title: "mixed nuts",
     description: "興味あることを投稿していく",
     creator: "mixed_nuts_nuts",
+  },
+  openGraph: {
+    description: "test",
+    url: ""
   }
 };
 

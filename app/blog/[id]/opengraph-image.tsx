@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og'
 import {fetchEntry} from "@/app/api/contentful";
 import {Thumbnail} from "@/app/lib";
+import type {Metadata} from "next";
 
 export const revalidate = "force-cache"
 export const runtime = 'nodejs'
@@ -12,6 +13,18 @@ export const size = {
 }
 
 export const contentType = 'image/png'
+
+export const metadata: Metadata = {
+    twitter: {
+        card: "summary_large_image",
+        title: "test",
+        description: "ikeruka"
+    },
+    openGraph: {
+        description: "test",
+        url: ""
+    }
+};
 
 // Image generation
 export default async function Image({params}: {params: {id: string}}) {
