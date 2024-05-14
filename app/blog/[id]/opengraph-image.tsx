@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og'
 import {fetchEntry} from "@/app/api/contentful";
 import {Thumbnail} from "@/app/lib";
-import type {Metadata} from "next";
 
 export const revalidate = "force-cache"
 export const runtime = 'nodejs'
@@ -14,17 +13,6 @@ export const size = {
 
 export const contentType = 'image/png'
 
-export async function generateMetadata({params}: {params: {id: string}}): Promise<Metadata> {
-    const entry = await fetchEntry(params.id)
-    const {title, body, thumbnail} = entry.fields;
-    return  {
-        title,
-        description: body,
-        openGraph: {
-            images: [thumbnail?.fields?.file?.url]
-        }
-    }
-}
 // Image generation
 export default async function Image({params}: {params: {id: string}}) {
     const entry = await fetchEntry(params.id)
