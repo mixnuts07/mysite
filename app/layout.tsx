@@ -8,18 +8,18 @@ import Header from "@/app/_components/Header";
 
 const inter = Montserrat({subsets: ["latin"]})
 export const metadata: Metadata = {
-  title: "mixed_nuts_nuts",
-  description: "興味あることを投稿するよ",
-  twitter: {
-    card: "summary_large_image",
-    title: "mixed nuts",
-    description: "興味あることを投稿していく",
-    creator: "mixed_nuts_nuts",
-  },
-  openGraph: {
-    description: "test",
-    url: ""
-  }
+  // title: "mixed_nuts_nuts",
+  // description: "興味あることを投稿するよ",
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "mixed nuts",
+  //   description: "興味あることを投稿していく",
+  //   creator: "mixed_nuts_nuts",
+  // },
+  // openGraph: {
+  //   description: "test",
+  //   url: ""
+  // }
 };
 
 export default function RootLayout({
