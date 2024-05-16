@@ -15,13 +15,12 @@ export const size = {
 export default async function Image({params}: {params: {id: string}}) {
     const entry = await fetchEntry(params.id)
     const {title, body} = entry.fields;
-    const thumbnail = Thumbnail(entry.fields?.thumbnail?.fields?.file?.url)
     return new ImageResponse(
         (
             <div
                 style={{
                     fontSize: 48,
-                    background: 'white',
+                    background: 'blue',
                     width: '100%',
                     height: '100%',
                     display: 'flex',

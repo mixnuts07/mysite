@@ -23,14 +23,14 @@ export async function generateMetadata({params}: {params: {id: string}}): Promis
   const {title, body, thumbnail} = entry.fields;
   return  {
     title,
-    description: body.slice(0,10),
+    description: body.slice(0,100),
     openGraph: {
       images: [thumbnail?.fields?.file?.url]
     },
     twitter: {
       card: "summary_large_image",
       title: title,
-      description: body.slice(0,10),
+      description: body.slice(0,100),
       creator: "mixed_nuts_nuts"
     }
   }
