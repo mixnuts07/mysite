@@ -35,17 +35,3 @@ export async function generateMetadata({params}: {params: {id: string}}): Promis
     }
   }
 }
-// export const metadata: Metadata = {
-// title: "mixed_nuts_nuts",
-// description: "興味あることを投稿するよ",
-// twitter: {
-//   card: "summary_large_image",
-//   title: "mixed nuts",
-//   description: "興味あることを投稿していく",
-//   creator: "mixed_nuts_nuts",
-// },
-// openGraph: {
-//   description: "test",
-//   url: ""
-// }
-// };
