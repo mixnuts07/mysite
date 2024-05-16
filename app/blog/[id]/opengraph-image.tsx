@@ -1,6 +1,5 @@
 import { ImageResponse } from 'next/og'
 import {fetchEntry} from "@/app/api/contentful";
-import {Thumbnail} from "@/app/lib";
 
 export const runtime = 'nodejs'
 export const revalidate = "force-cache"
@@ -14,7 +13,7 @@ export const size = {
 // Image generation
 export default async function Image({params}: {params: {id: string}}) {
     const entry = await fetchEntry(params.id)
-    const {title, body} = entry.fields;
+    const {title} = entry.fields;
     return new ImageResponse(
         (
             <div
