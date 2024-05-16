@@ -12,23 +12,29 @@ export default async function Page({ params }: { params: { id: string } }) {
   const url = Thumbnail(entry.fields?.thumbnail?.fields?.file?.url)
   return (
     <div className='mb-32'>
-      <title>{title}</title>
+      {/*<title>{title}</title>*/}
       <ArticleComponent props={{ title, body, url , createdAt, tags }} />
     </div>
   );
 }
 
-// export async function generateMetadata({params}: {params: {id: string}}): Promise<Metadata> {
-//   const entry = await fetchEntry(params.id)
-//   const {title, body, thumbnail} = entry.fields;
-//   return  {
-//     title,
-//     description: body,
-//     openGraph: {
-//       images: [thumbnail?.fields?.file?.url]
-//     }
-//   }
-// }
+export async function generateMetadata({params}: {params: {id: string}}): Promise<Metadata> {
+  const entry = await fetchEntry(params.id)
+  const {title, body, thumbnail} = entry.fields;
+  return  {
+    title,
+    description: body.slice(0,10),
+    openGraph: {
+      images: [thumbnail?.fields?.file?.url]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: body.slice(0,10),
+      creator: "mixed_nuts_nuts"
+    }
+  }
+}
 // export const metadata: Metadata = {
 // title: "mixed_nuts_nuts",
 // description: "興味あることを投稿するよ",
