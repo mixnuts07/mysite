@@ -6,9 +6,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
-		"format": "bunx @biomejs/biome format --write .",
-		"check": "bunx @biomejs/biome check --apply ."
+		"lint": "next lint"
 	},
 	"dependencies": {
 		"@vercel/analytics": "^1.1.1",
