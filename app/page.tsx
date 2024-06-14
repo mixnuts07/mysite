@@ -43,7 +43,7 @@ const Profile = () => {
 		<div className="border-2 border-black rounded-lg mx-5 mt-10 p-5">
 			<div className="flex flex-row items-end gap-3">
 				<Image
-					src="/me.png"
+					src="/img.png"
 					alt="me"
 					width="100"
 					height="100"
